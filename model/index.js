@@ -13,7 +13,7 @@ class User {
         const {emailAdd, userPass} = req.body;
         const strQry = 
         `
-        SELECT firstName, lastName, gender, emailAdd, userPass, userRole, userProfile
+        SELECT firstName, lastName, gender, emailAddress, userPass, userRole, userProfile
         FROM Users
         WHERE emailAdd = '${emailAdd}';
         `;
@@ -72,21 +72,20 @@ class User {
 
 
     fetchUser(req, res) {
-        const strQry = 
-        `
+        const strQry =`
         SELECT userID, firstName, lastName, gender, cellphoneNumber, emailAddress, userRole, userProfile, joinData, cart
         FROM Users
         WHERE userID = ?;
         `;
         //db
-        db.query(strQry,[req.params.id], 
-            (err, data)=>{
+        db.query( strQry, [req.params.id], (err, data) => {
             if(err) throw err;
-            else res.status(200).json( 
-                {results: data} );
-        })
-
+            else res.status(200).json({
+                results: data
+            });
+        });
     }
+    
     async createUser(req, res) {
         // Payload
         let detail = req.body;
