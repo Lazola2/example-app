@@ -15,7 +15,7 @@ class User {
         `
         SELECT firstName, lastName, gender, emailAddress, userPass, userRole, userProfile
         FROM Users
-        WHERE emailAdd = '${emailAdd}';
+        WHERE emailAddress = '${emailAdd}';
         `;
         db.query(strQry, async (err, data)=>{
             if(err) throw err;
