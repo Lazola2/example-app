@@ -14,15 +14,9 @@ const user = new User();
 const product = new Product();
 // ^/$|/jtbookstore
 
-route.get('/', (req, res) => {
-    res.send({
-        message: "Welcome to this api"
-    })
+route.get('^/$|/jtbookstore', (req, res)=>{
+    res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
 })
-
-// route.get('^/$|/jtbookstore', (req, res)=>{
-//     res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
-// })
 // =========USER's Router========
 // Login
 route.post('/login', bodyParser.json(), (req, res)=>{
