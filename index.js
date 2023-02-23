@@ -33,7 +33,7 @@ app.use(
 )
 
 // Server is running
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log(`Server is running`)
 });
 // Handling all errors

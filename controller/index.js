@@ -7,11 +7,18 @@ const bodyParser = require('body-parser');
 const route = express.Router();
 // Models
 const {User, Product} = require('../model');
+const { Router } = require('express');
 // Create a user instance
 const user = new User();
 // Product instance
 const product = new Product();
 // ^/$|/jtbookstore
+
+route.get('/', (req, res) => {
+    res.send({
+        message: "Welcome to this api"
+    })
+})
 route.get('^/$|/jtbookstore', (req, res)=>{
     res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
 })
